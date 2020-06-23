@@ -52,7 +52,7 @@ header{
     background: transparent;
     position: absolute;
     top: 16px;
-    display: none;
+    /* display: none; */
 }
 
 

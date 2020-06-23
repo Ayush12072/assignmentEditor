@@ -6,101 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link  href="dist/cropper.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/cropper.css">
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js"></script>
 </head>
 
 <body>
 
-    <div class="container">
-        <div class="container-fluid" style="background:#1e1f26">
-            <header class="container text-center">
-                <h1>Editor</h1>
-            </header>
-            <div class="row">
+  <div class="container">
+    <div class="container-fluid" style="background:#1e1f26">
+        <header class="container text-center">
+            <h1>Editor</h1>
+        </header>
+        <div class="row">
 
-                <div class="col-4">
-                    <!-- list draggable Image -->
-                    <div class="row listImg">
-                        
-                    </div>
-                    <ul class="pagination" style="display: none;">
-                        <li class="page-item one"><a class="page-link" href="javascript:void(0);">1</a></li>
-                        <li class="page-item two"><a class="page-link" href="javascript:void(0);">2</a></li>
-                        <li class="page-item three"><a class="page-link" href="javascript:void(0);">3</a></li>
-                      </ul>
-                </div>
-                <div class="col-8">
-                    <!--Dropzone Canvas-->
-                    <div class="mb50  p-3 mainArea">
-                        <canvas id="myCanvas" width="304" height="540">
-                            hope you don't see this, if you see this... please update your browser
-                            <img id="imgCanvas" src="img/intro2.jpg" alt="my Image Canvas">
-                        </canvas>
-                        <!-- <div id="pane" class="resizable">
-                            <div id="title">Resize, Drag or Snap Me!</div>
-                        </div>
-                        <div id="ghostpane"></div> -->
-                        <div class='resizable'>
-                            <div class='resizers'>
-                              <div class='resizer top-left'></div>
-                              <div class='resizer top-right'></div>
-                              <div class='resizer bottom-left'></div>
-                              <div class='resizer bottom-right'></div>
-                            </div>
-                          </div>
-                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="cropButton"> Crop </button>
-                    </div>
-                </div>
-
-
-
-            </div>
-            <!--/.row-->
-        </div>
-        <footer>
-            <div class="container">
-                <div class="row">
+            <div class="col-4">
+                <!-- list draggable Image -->
+                <div class="row listImg">
                     
                 </div>
+                <ul class="pagination" style="display: none;">
+                    <li class="page-item one"><a class="page-link" href="javascript:void(0);">1</a></li>
+                    <li class="page-item two"><a class="page-link" href="javascript:void(0);">2</a></li>
+                    <li class="page-item three"><a class="page-link" href="javascript:void(0);">3</a></li>
+                  </ul>
             </div>
-            <!--/.container-->
-        </footer>
-    </div>
+            <div class="col-md-8">
+              <!-- <h3>Demo:</h3> -->
+              <div class="docs-demo ui-droppable">
+                <div class="img-container">
+                  <img src="img/drag.png" alt="Picture">
+                </div>
+              </div>
 
-  
-  <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-  
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-  
-        <!-- Modal body -->
-        <div class="modal-body">
-            <canvas id="myCroppedCanvas" width="304" height="540">
-                <img id="imgCroppedCanvas" src="img/intro2.jpg" alt="my Image Canvas">
-            </canvas>
-        </div>
-  
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success">Save</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-  
-      </div>
-    </div>
-  </div>
+              <div class="row" id="actions">
+                <div class="col-md-9 docs-buttons">
+                  <div class="btn-group btn-group-crop">
+                    <button type="button" class="btn btn-success" data-method="getCroppedCanvas" data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }">
+                      <span class="docs-tooltip" data-toggle="tooltip" title="cropper.getCroppedCanvas({ maxWidth: 4096, maxHeight: 4096 })">
+                        Get Cropped Canvas
+                      </span>
+                    </button>
+                  </div> 
+          
+                  <!-- Show the cropped image in modal -->
+                  <div class="modal fade docs-cropped" id="getCroppedCanvasModal" role="dialog" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" tabindex="-1">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="getCroppedCanvasTitle">Cropped</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.jpg">Download</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                </div>
+              </div>
 
+            </div>
+
+
+
+        </div>
+        <!--/.row-->
+
+        
+
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                
+            </div>
+        </div>
+        <!--/.container-->
+    </footer>
+</div>
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> -->
+  <script src="https://fengyuanchen.github.io/shared/google-analytics.js" crossorigin="anonymous"></script>
+  <script src="js/cropper.js"></script>
+  <script src="js/main.js"></script>
     <script src="js/script.js"></script>
 </body>
 
