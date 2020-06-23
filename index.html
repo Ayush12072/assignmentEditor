@@ -53,7 +53,7 @@
                               <div class='resizer bottom-right'></div>
                             </div>
                           </div>
-                        <button id="cropButton"> Crop </button>
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="cropButton"> Crop </button>
                     </div>
                 </div>
 
@@ -71,6 +71,35 @@
             <!--/.container-->
         </footer>
     </div>
+
+  
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <canvas id="myCroppedCanvas" width="304" height="540">
+                <img id="imgCroppedCanvas" src="img/intro2.jpg" alt="my Image Canvas">
+            </canvas>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
 
     <script src="js/script.js"></script>
 </body>
