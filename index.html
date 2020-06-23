@@ -1,0 +1,78 @@
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link  href="dist/cropper.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="container-fluid" style="background:#1e1f26">
+            <header class="container text-center">
+                <h1>Editor</h1>
+            </header>
+            <div class="row">
+
+                <div class="col-4">
+                    <!-- list draggable Image -->
+                    <div class="row listImg">
+                        
+                    </div>
+                    <ul class="pagination" style="display: none;">
+                        <li class="page-item one"><a class="page-link" href="javascript:void(0);">1</a></li>
+                        <li class="page-item two"><a class="page-link" href="javascript:void(0);">2</a></li>
+                        <li class="page-item three"><a class="page-link" href="javascript:void(0);">3</a></li>
+                      </ul>
+                </div>
+                <div class="col-8">
+                    <!--Dropzone Canvas-->
+                    <div class="mb50  p-3 mainArea">
+                        <canvas id="myCanvas" width="304" height="540">
+                            hope you don't see this, if you see this... please update your browser
+                            <img id="imgCanvas" src="img/intro2.jpg" alt="my Image Canvas">
+                        </canvas>
+                        <!-- <div id="pane" class="resizable">
+                            <div id="title">Resize, Drag or Snap Me!</div>
+                        </div>
+                        <div id="ghostpane"></div> -->
+                        <div class='resizable'>
+                            <div class='resizers'>
+                              <div class='resizer top-left'></div>
+                              <div class='resizer top-right'></div>
+                              <div class='resizer bottom-left'></div>
+                              <div class='resizer bottom-right'></div>
+                            </div>
+                          </div>
+                        <button id="cropButton"> Crop </button>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!--/.row-->
+        </div>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    
+                </div>
+            </div>
+            <!--/.container-->
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
